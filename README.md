@@ -15,6 +15,7 @@ Copy the python3 script directly into your Folder containing the AI.
 Modify your AI.per files by adding identifiers, the script can identify. More details on that later.
 Run the script.
 In the Main Folder of the AI a Documentation Folder is createt, which contains the created HTML Documentation.
+Open the created html files with a browser of you choise.
 
 ## What does the script actually do?
 1. Gather information
