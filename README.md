@@ -31,7 +31,7 @@ In the Main Folder of the AI a Documentation Folder is createt, which contains t
    1. Headder
    2. Navigaion with hyperlinks
    3. Content
-   4. Fodder
+   4. Footer
 
 ## How to use identifiers in the .per files
 
@@ -59,7 +59,8 @@ Files inside the AI Mainfolder, even if unused.
 !i -> Ignore          Ignore this entire line comment
 
 ### Define Options for the documentation
-!o -> Option = Value  Define Option in the main AI.per file
+Define Option in the main AI.per file:
+;!o Option = Value  
 
 Currently available options:
 
