@@ -63,12 +63,9 @@ Define Option in the main AI.per file:
 ;!o Option = Value  
 
 Currently available options:
-
-Mainfolder: defines Folder with all .per files; default = found Name of AI
-
-Docfolder: defines Name of documentaton folder; default = Documentation
-
-Docpath: defines target path of documentation folder; default = inside main folder
+- Mainfolder: defines Folder with all .per files; default = found Name of AI
+- Docfolder: defines Name of documentaton folder; default = Documentation
+- Docpath: defines target path of documentation folder; default = inside main folder
 
 
 ## LIMITATIONS
