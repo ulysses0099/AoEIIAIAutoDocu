@@ -1,59 +1,7 @@
 #!/usr/bin/python3
-# ==============================================================================
-# Tutorial AoE II AI Auto HTML Document creator
-# ==============================================================================
-#
-#
-#
-# ==============================================================================
-# README
-# ==============================================================================
-# 
-# HOW TO DEFINE AI METADATA INSIDE .PER FILES
-#
-# Start a Comment line with ";" add "!" and add one of the listed Identifiers e.g. "a"
-# (to get ";!a" as the first 3 symbols of the line) to define METADATA inside your AI.
-# The AI Code is automatically recogniced.
-# Define Options for this script, usind ";!o" directly in the main AI.per File.
-# Included in the Documentation are the main AI.per FIle as well as all .per
-# Files inside the AI Mainfolder, even if unused.
-#  
-# ------------------------------------------------------------------------------
-# VALID IDENTYFIERS
-# 
-# !a -> Author        First encounter triggers Name of Author of AI
-# !v -> Version       First encounter triggers Version Number of AI
-# !d -> Date          First encounter triggers Date of AI
-#
-# !a,!v,!d can be used in every module as well
-#
-# ------------------------------------------------------------------------------
-# MODULEDATA
-#
-# !m -> TITLE           Title of module
-# !s -> SubTITLE        Subtile inside module
-# !r -> Name            Name of Rule, must be defined inside Rule
-# !a -> Author          First encounter triggers Name of Author of module
-# !v -> Version         First encounter triggers Version Number of module
-# !d -> Date            First encounter triggers Date Number of module
-#
-# ------------------------------------------------------------------------------
-# Special IDENTYFIERS
-#
-# !i -> Ignore          Ignore this entire line comment
-# !o -> Option = Value  Define Option
-#
-# ------------------------------------------------------------------------------
-# LIMITATIONS
-# 
-# - The closing ")" of Rules should be in a seperate line to be correctly
-#   formatted.
-# - The closing ")" of load-random constructs has to be in a seperate line!
-# - Only use utf-8 characters for the entire AI
-# ==============================================================================
 
 __author__  = "ulysses0099"
-__version__ = "v0c2"
+__version__ = "v0c3"
 __status__  = "Prototype"
 
 import os, sys, glob, copy, shutil
@@ -192,6 +140,7 @@ def AnalyseLine(line, Counter, prevlinetype):
     content = ''
     linetype = ''
     found = False
+    splitline = line.split()
 
     # Check if line is end of Rule or end of Load Random
     if(line.strip() == ')'):
@@ -294,8 +243,9 @@ def AnalyseLine(line, Counter, prevlinetype):
         # Check for AI Scripting Code
         res = switch_Code(splitline[0])
 
-        # print(res)
         if res[0]:
+            # print(res)
+            
             found = True
             linetype = res[0].strip()
             if linetype in ['Condition', 'Rule', 'Constant']:
@@ -314,6 +264,7 @@ def AnalyseLine(line, Counter, prevlinetype):
             Counter[linetype] += res[1]
             Statistics[linetype] += res[2]
             content = content.strip()
+            # print(content)
 
           
     if Counter['Random'] > 0:
@@ -670,6 +621,11 @@ def PrepareLineFromResources(list_Resources):
 
 
 
+
+
+
+
+
 # ==============================================================================
 # Programm
 # ==============================================================================
@@ -941,7 +897,7 @@ for itx in StartIndex:
 # ==============================================================================
 PrintSubHead('Sort Modules into loading order:')
 
-# PrintDict(Modules)
+PrintDict(Modules)
 
 SortedModules = {}
 cModule = os.sep.join(Modules[0][1])
@@ -968,6 +924,8 @@ while imod < nmod:
     while itx < nmod:
 
         # print(itx)
+        # print(Modules[itx][1])
+        # print(Modules[itx][2])
         sModule = os.sep.join(Modules[itx][1])
         spModule = os.sep.join(Modules[itx][2])
         # print('sModule   = ' + sModule)
