@@ -46,18 +46,18 @@ Files inside the AI Mainfolder, even if unused.
 
 ### DEFINE AI METADATA INSIDE .PER FILES
 
-!a -> Author        Author of current AI, module, section, ...
-!v -> Version       Version number of the current AI, module, section, ...
-!d -> Date          Date of the current AI, module, section, ...
+- !a -> Author        Author of current AI, module, section, ...
+- !v -> Version       Version number of the current AI, module, section, ...
+- !d -> Date          Date of the current AI, module, section, ...
 
 !a,!v,!d can be used multiple times
 
 ### MODULEDATA
 
-!m -> TITLE           Title of module
-!s -> SubTITLE        Subtile inside module
-!r -> Rule name       Name of Rule, must be defined inside a Rule
-!i -> Ignore          Ignore this entire line comment
+- !m -> TITLE           Title of module
+- !s -> SubTITLE        Subtile inside module
+- !r -> Rule name       Name of Rule, must be defined inside a Rule
+- !i -> Ignore          Ignore this entire line comment
 
 ### Define Options for the documentation
 Define Option in the main AI.per file:
@@ -67,10 +67,15 @@ Currently available options:
 - Mainfolder: defines Folder with all .per files; default = found Name of AI
 - Docfolder: defines Name of documentaton folder; default = Documentation
 - Docpath: defines target path of documentation folder; default = inside main folder
-
+- Logfilename: defines the filename of the logfile for detailed log information
 
 ## LIMITATIONS
  
 - The closing ")" of Rules should be in a seperate line to be correctly formatted.
 - The closing ")" of load-random constructs has to be in a seperate line!
-- Only use utf-8 characters for the entire AI
+- Only use utf-8 characters for the entire AI, non-utf8 characters within .per files are replaced by "?"
+
+## Changelog
+- v0c2 Initial working script with first html output
+- v0c3 load-random now working if formatted correctly
+- v0c4 added detailed logging to prevent a lot of print statements
